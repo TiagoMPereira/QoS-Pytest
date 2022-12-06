@@ -97,7 +97,7 @@ def test_delete_method__general_url__expect_status_code():
     assert response.json() == {}
 
 
-def test_get_method_invalid_id__general_url__expect_first_response():
+def test_get_method_invalid_id__general_url__expect_empty_response():
     # FIXTURE
     id = "invalid_id"
     url = f"https://jsonplaceholder.typicode.com/"
