@@ -45,4 +45,30 @@ Caso o pytest não esteja nos requisitos instalados pelo requirements.txt é pos
 - ```pytest``` -> para executar todos os testes
 - ```pytest -v``` -> para executar os testes detalhadamente
 - ```pytest --cov``` -> para gerar o relatório de cobertura de testes
-- ```pytest --cov-report html --cov=tests/ tests/``` -> para gerar o relatório de cobertura e salvar em um html
+
+---
+## Gerando artefato
+
+Para gerar um artefato de testes, é possível utilizar a biblioteca pytest-hmtl
+Para executar e gerar o artefato, basta utilizar os comandos abaixo:
+- ```pytest --html=artifact/report.html``` -> para gerar o artefato com a execução dos testes
+- ```pytest --cov-report html --cov=tests/ tests/``` -> para gerar relatório de cobertura dos testes
+
+
+## Comparação com Unittest
+
+| Feature                    | Pytest                             | Unittest                         | Winner   |
+|----------------------------|------------------------------------|----------------------------------|----------|
+| Installation               | Third Party                        | Built in                         | Unittest |
+| Basic Infra                | Can be only a function             | Inheritance                      | Pytest   |
+| Basic Assertion            | Builtin assert                     | TestCase instance methods        | Pytest   |
+| Flat is better than nested | Function (1 level)                 | Method (2 level)                 | Pytest   |
+| Can run each other test    | Can run unittest tests             | Can't pytest test                | Pytest   |
+| Test Result on console     | Error Highlight, code snippet      | Only line error, no highlight    | Pytest   |
+| Multi param test           | Yes, parametrize, keep flat        | Yes, sub-test, increase nesting  | Pytest   |
+| Test setup                 | fixture: module, session, function | Template Method: setup, tearDown | Pytest   |
+| Name Refactoring           | poor, because of name conventions  | rich, regular object orientation | Unittest |
+| Running Failed Tests       | built in (--lf, --ff)              | your own =,(                     | Pytest   |
+| Marks                      | built in                           | your own =,(                     | Pytest   |
+
+source: <https://github.com/renzon/pytest-vs-unittest>
