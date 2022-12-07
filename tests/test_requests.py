@@ -1,6 +1,14 @@
 import requests
 
 
+def test_get_method():
+    url = "https://jsonplaceholder.typicode.com/"
+    status = 200
+
+    response = requests.get(url+"posts")
+
+    assert response.status_code == status
+
 def test_get_method__general_url__expect_first_response():
     # FIXTURE
     url = "https://jsonplaceholder.typicode.com/"
